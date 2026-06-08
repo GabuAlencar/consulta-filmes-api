@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    color:white;
+}
+
+.conteiner{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.cabecalho{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.cabecalho h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.cabecalho p{
+    color:#cbd5e1;
+}
+
+.caixa-pesquisa{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+.caixa-pesquisa input{
+    width:500px;
+    max-width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+}
+
+.caixa-pesquisa button{
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.caixa-pesquisa button:hover{
+    transform:translateY(-2px);
+    background:#2563eb;
+}
+
+.cartao-filme{
+    display:none;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.conteudo-filme{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.capa-filme{
+    flex:1;
+    min-width:300px;
+}
+
+.capa-filme img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.informacoes-filme{
+    flex:2;
+    padding:35px;
+}
+
+.informacoes-filme h2{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.etiquetas{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.etiqueta{
+    background:#3b82f6;
+    padding:8px 15px;
+    border-radius:999px;
+    font-size:14px;
+}
+
+.informacoes-filme p{
+    line-height:1.8;
+    color:#e2e8f0;
+    margin-bottom:15px;
+}
+
+.carregando{
+    text-align:center;
+    display:none;
+    margin-top:20px;
+}
+
+.rodape {
+    margin-top: 40px;
+    padding: 25px 20px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: #ffffff;
+}
+
+.rodape p {
+    margin: 5px 0;
+}
+
+.rodape p:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.rodape p:last-child {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}

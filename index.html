@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Consulta de Filmes com API</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="conteiner">
+
+    <header class="cabecalho">
+        <h1>🎬 Consulta de Filmes com API</h1>
+
+        <p>
+            Demonstração de Consumo de API utilizando
+            Node.js, Express e OMDb
+        </p>
+    </header>
+
+    <div class="caixa-pesquisa">
+
+        <input
+            type="text"
+            id="campoFilme"
+            placeholder="Digite o nome de um filme..."
+        >
+
+        <button onclick="buscarFilme()">
+            Buscar Filme
+        </button>
+
+    </div>
+
+    <div
+        class="carregando"
+        id="carregando"
+    >
+        Carregando...
+    </div>
+
+    <div
+        class="cartao-filme"
+        id="cartaoFilme"
+    >
+
+        <div class="conteudo-filme">
+
+            <div class="capa-filme">
+                <img
+                    id="capaFilme"
+                    alt="Capa do Filme"
+                >
+            </div>
+
+            <div class="informacoes-filme">
+
+                <h2 id="tituloFilme"></h2>
+
+                <div class="etiquetas">
+
+                    <div
+                        class="etiqueta"
+                        id="anoLancamento"
+                    ></div>
+
+                    <div
+                        class="etiqueta"
+                        id="generoFilme"
+                    ></div>
+
+                </div>
+
+                <p>
+                    <strong>Diretor:</strong>
+                    <span id="diretorFilme"></span>
+                </p>
+
+                <p id="sinopseFilme"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="rodape">
+    <p>
+        Gabriel Alencar • João Alencar • Cauã Souza
+    </p>
+
+    <p>
+        Análise e Desenvolvimento de Sistemas - Fatec Taubaté 2026
+    </p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+<script>
+async function buscarFilme() {
+
+    const nomeFilme = document
+        .getElementById("campoFilme")
+        .value
+        .trim();
+
+    if (!nomeFilme) {
+        alert("Digite o nome de um filme.");
+        return;
+    }
+
+    const carregando =
+        document.getElementById("carregando");
+
+    const cartaoFilme =
+        document.getElementById("cartaoFilme");
+
+    carregando.style.display = "block";
+    cartaoFilme.style.display = "none";
+
+    try {
+
+        const resposta = await fetch(
+            `http://localhost:3000/filme/${encodeURIComponent(nomeFilme)}`
+        );
+
+        const dadosFilme = await resposta.json();
+
+        if (!resposta.ok) {
+            throw new Error(
+                dadosFilme.mensagem ||
+                "Filme não encontrado."
+            );
+        }
+
+        document.getElementById("tituloFilme")
+            .textContent = dadosFilme.titulo;
+
+        document.getElementById("anoLancamento")
+            .textContent = dadosFilme.ano;
+
+        document.getElementById("generoFilme")
+            .textContent = dadosFilme.genero;
+
+        document.getElementById("diretorFilme")
+            .textContent = dadosFilme.diretor;
+
+        document.getElementById("sinopseFilme")
+            .textContent = dadosFilme.sinopse;
+
+        document.getElementById("capaFilme")
+            .src = dadosFilme.poster;
+
+        document.getElementById("capaFilme")
+            .alt = `Capa do filme ${dadosFilme.titulo}`;
+
+        cartaoFilme.style.display = "block";
+
+    } catch (erro) {
+
+        alert(
+            erro.message ||
+            "Ocorreu um erro ao buscar o filme."
+        );
+
+        cartaoFilme.style.display = "none";
+
+    } finally {
+
+        carregando.style.display = "none";
+
+    }
+}
+
+document
+    .getElementById("campoFilme")
+    .addEventListener("keydown", function(evento) {
+
+        if (evento.key === "Enter") {
+            buscarFilme();
+        }
+
+    });
+</script>
+
+</body>
+</html>
