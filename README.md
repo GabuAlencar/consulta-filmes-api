@@ -130,7 +130,7 @@ APIFilme/
 
 ---
 
-## 🎓 Projeto Acadêmico
+## 🎓 Projeto Curricularização
 
 Projeto desenvolvido como atividade extensionista do curso de Análise e Desenvolvimento de Sistemas da Fatec Taubaté, com o objetivo de aplicar conhecimentos relacionados ao desenvolvimento web, integração de sistemas e consumo de APIs.
 
