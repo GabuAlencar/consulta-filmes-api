@@ -11,7 +11,6 @@ Entre os dados exibidos estão:
 * 🎥 Título do filme
 * 📅 Ano de lançamento
 * 🎭 Gênero
-* ⭐ Avaliação
 * 📝 Sinopse
 * 🖼️ Pôster oficial
 
